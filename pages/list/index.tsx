@@ -2,7 +2,7 @@ import React from "react";
 const ListPage = () => {
     return(
         <div>
-        kimia hastam
+        kimia test
     </div>)
 }
 
