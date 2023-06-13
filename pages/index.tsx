@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import {CustomButton} from "../components/CustomButton/CustomButton";
+import Menu from "../components/Menu/Menu";
 
 const Home: NextPage = () => {
   return (
@@ -13,9 +14,10 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/*<main className={styles.main}>*/}
-      {/*  <h1 className={'text-2xl underline'}>hihihiccccccch</h1>*/}
-      {/*  <CustomButton name={'test'} action={() => console.log('kii')}/>*/}
+      <main className={styles.main}>
+        <h1 className={'text-4xl p-md text-blue-900 '}>PSP Express</h1>
+        <Menu/>
+
       {/*  <h1 className={styles.title}>*/}
       {/*    Welcome to <a href="https://nextjs.org">Next.js!</a>*/}
       {/*  </h1>*/}
@@ -54,7 +56,7 @@ const Home: NextPage = () => {
       {/*      </p>*/}
       {/*    </a>*/}
       {/*  </div>*/}
-      {/*</main>*/}
+      </main>
 
       {/*<footer className={styles.footer}>*/}
       {/*  <a*/}
