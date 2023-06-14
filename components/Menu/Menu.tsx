@@ -2,7 +2,7 @@ import React from "react";
 import {CustomButton} from "../CustomButton/CustomButton";
 import {router} from "next/client";
 import {useRouter} from "next/router";
-// import './menu.scss'
+import styles from './menu.module.scss'
 const Menu = () => {
     const router = useRouter();
     const navigateToLink = (url : string):void => {
@@ -10,9 +10,13 @@ const Menu = () => {
     }
 
     return(
-        <div className={'flex flex-row justify-around content-center w-1/2 bg-blue-100 rounded-lg'}>
-            <CustomButton name={'setting'} action={() => navigateToLink('setting')}/>
-            <CustomButton name={'list'} action={() => navigateToLink('list')}/>
+        <div className={styles.menu}>
+            <h1 className={styles.menu__title}>PSP Express</h1>
+            <div className={styles.menu__container}>
+                <CustomButton name={'setting'} action={() => navigateToLink('setting')} styles={styles.menu__button}/>
+                <CustomButton name={'list'} action={() => navigateToLink('list')} styles={styles.menu__button}/>
+            </div>
+
         </div>
     )
 }

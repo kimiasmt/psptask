@@ -1,15 +1,22 @@
-import React, {useState} from "react";
+import React from "react";
 import {useQuery} from "react-query";
-import {BASE_URL} from "../../public/EnvironmentUrl";
+import {getCommentList} from "../api/list";
+import {Comment} from "../../components/Comment/Comment";
+import styles from './list.module.scss'
 const ListPage = () => {
-    const [commentList,setComment] = useState<any[]>([])
-    const { data, isLoading, error } = useQuery('List', async () => {
-        const response = await fetch(`${BASE_URL}/comments`);
-        return console.log(response.json().then(data => data));
-    });
+    const { data, isLoading, error } = useQuery('List', getCommentList);
+
+    if(isLoading) {
+        return <div>Loading!</div>
+    }
     return(
-        <div>
-        kimia test
+        <div className={styles.list}>
+            {data?.map((item:any) => {
+                return(
+                    <div key={item.id} >
+                    <Comment name={item.name} message={item.body}/>
+                </div>)
+            })}
     </div>)
 }
 
